@@ -3,24 +3,7 @@
         <h1 class="title">PRODUCTS</h1>
         <div class="columns">
             <div class="column" *ngFor="let item of storeModel.itemsStore">
-                <div class="is-one-quarter">
-                    <div class="card">
-                        <div class="card-image">
-                            <figure class="image is-4by3">
-                                <img src="assets/products/{{item.image}}" />
-                            </figure>
-                        </div>
-                        <div class="card-content">
-                            <strong>{{item.title}}</strong>
-                            <br />
-                            <p>{{item.text}}</p>
-                            <button class="button is-fullwidth is-small is-dange"
-                            (click)="selectItem(item)">
-                                BUY FOR ${{item.price}}
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                <app-without-status [Product]="item"></app-without-status>
             </div>
         </div>
     </section>

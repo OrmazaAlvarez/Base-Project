@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WithStatusComponent } from './with-status/with-status.component';
+import { WithoutStatusComponent } from './without-status/without-status.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WithStatusComponent
+    WithStatusComponent,
+    WithoutStatusComponent
   ],
   imports: [
     BrowserModule,

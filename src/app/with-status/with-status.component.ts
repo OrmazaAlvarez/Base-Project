@@ -17,8 +17,4 @@ export class WithStatusComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  selectItem(item){
-    this.purchasedItems.push(item)
-  }
 }
