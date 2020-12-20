@@ -1,7 +1,5 @@
-import { Product } from "../interfaces/product"
-
 export class Store {
-    itemsStore:Array<Product>
+    itemsStore:Array<Object>
     
     constructor() {
         this.itemsStore = [

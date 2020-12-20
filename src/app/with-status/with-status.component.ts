@@ -11,9 +11,14 @@ export class WithStatusComponent implements OnInit {
 
   storeModel: Store = new Store();
   purchasedItems: Array<Product>;
-  constructor() { }
+  constructor() { 
+    this.purchasedItems = [];
+  }
 
   ngOnInit(): void {
   }
 
+  selectItem(item){
+    this.purchasedItems.push(item)
+  }
 }
