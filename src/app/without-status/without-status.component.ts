@@ -1,10 +1,11 @@
 import { Product } from './../interfaces/product';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-without-status',
   templateUrl: './without-status.component.html',
-  styleUrls: ['./without-status.component.sass']
+  styleUrls: ['./without-status.component.sass'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WithoutStatusComponent implements OnInit {
   @Input() Product:Product;

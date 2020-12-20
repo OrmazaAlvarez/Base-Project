@@ -29,7 +29,8 @@
                   <div class="is is-one-quarter ">
                     <h2 class="title">Total {{ getPrecioTotal() | currency }}</h2>
                   </div>
-                  <button class="button is-link  is-pulled-right is-danger">
+                  <button class="button is-link  is-pulled-right is-danger"
+                   (click)="makePayment()">
                     BUY NOW
                   </button>
                 </div>
@@ -38,3 +39,5 @@
           </div>
     </section>
 </div>
+
+<app-confirmation-alert></app-confirmation-alert>
