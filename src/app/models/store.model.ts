@@ -1,25 +1,27 @@
+import { Product } from "../interfaces/product"
+
 export class Store {
-    itemStore:Array<Object>
+    itemsStore:Array<Product>
     
     constructor() {
-        this.itemStore = [
+        this.itemsStore = [
             {
                 text:
-                  "H + Sport se dedica a crear productos nutricionales ecológicos, de alta calidad y ricos en nutrientes que mejoran los estilos de vida activos",
-                title: "Agua Mineral Naranja",
-                image: "agua mineral-naranja.jpg",
+                  "H + Sport is dedicated to creating high-quality, nutrient-rich, organic nutritional products that enhance active lifestyles.",
+                title: "Orange Mineral Water",
+                image: "mineralwater-orange.jpg",
                 price: 20
               },
               {
                 text:
-                  "H + Sport se dedica a crear productos nutricionales ecológicos, de alta calidad y ricos en nutrientes que mejoran los estilos de vida activos",
-                title: "Agua Mineral de Fresa",
-                image: "agua mineral-fresa.jpg",
+                  "H + Sport is dedicated to creating high-quality, nutrient-rich, organic nutritional products that enhance active lifestyles.",
+                title: "Strawberry Mineral Water",
+                image: "mineralwater-strawberry.jpg",
                 price: 33
               },
               {
                 text:
-                  "H + Sport se dedica a crear productos nutricionales ecológicos, de alta calidad y ricos en nutrientes que mejoran los estilos de vida activos",
+                  "H + Sport is dedicated to creating high-quality, nutrient-rich, organic nutritional products that enhance active lifestyles.",
                 title: "Chocolate Protein Bar",
                 image: "proteinbar-chocolate.jpg",
                 price: 120
