@@ -1,5 +1,5 @@
 import { Product } from './../interfaces/product';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-without-status',
@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class WithoutStatusComponent implements OnInit {
   @Input() Product:Product;
+  @Output() selectProduct: EventEmitter<Product> = new EventEmitter();
 
   private disabled:boolean;
   public actionBuy:string = "";
@@ -21,10 +22,11 @@ export class WithoutStatusComponent implements OnInit {
 
   selectItem(){
     this.disabled = true;
-    this.actionBuy = "ADDED TO CART"
+    this.actionBuy = "ADDED TO CART";
+    this.selectProduct.emit(this.Product);
   }
   isItemDisabled(){
-    return !!this.disabled
+    return !!this.disabled;
   }
 
 }

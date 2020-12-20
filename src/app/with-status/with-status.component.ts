@@ -17,4 +17,14 @@ export class WithStatusComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  onSelectProduct(_event: Product){
+    this.purchasedItems.push(_event);
+  }
+  getPrecioTotal(){
+    if (this.purchasedItems){
+      return this.purchasedItems.reduce((prev:number, item:Product) => prev + item.price,
+      0);
+    }
+  }
 }

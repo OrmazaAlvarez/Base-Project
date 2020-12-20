@@ -3,11 +3,38 @@
         <h1 class="title">PRODUCTS</h1>
         <div class="columns">
             <div class="column" *ngFor="let item of storeModel.itemsStore">
-                <app-without-status [Product]="item"></app-without-status>
+                <app-without-status [Product]="item" (selectProduct)="onSelectProduct($event)"></app-without-status>
             </div>
         </div>
     </section>
     <section>
-        <li *ngFor="let purchasedItem of purchasedItems">{{purchasedItem.title}}</li>
+        <div *ngIf="purchasedItems.length > 0">
+            <div class="columns">
+              <nav class="panel is-three-quarter column">
+                <p class="panel-heading">
+                  Detalle de Compra
+                </p>
+      
+                <div class="panel-block" *ngFor="let purchasedItem of purchasedItems">
+                  {{ purchasedItem.title }}
+                  <span class="item-price">
+                    {{ purchasedItem.price | currency }}
+                  </span>
+                </div>
+              </nav>
+            </div>
+            <div class="columns">
+              <div class="column is-fullwidth">
+                <div class="is-pulled-right">
+                  <div class="is is-one-quarter ">
+                    <h2 class="title">Total {{ getPrecioTotal() | currency }}</h2>
+                  </div>
+                  <button class="button is-link  is-pulled-right is-danger">
+                    BUY NOW
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
     </section>
 </div>
