@@ -6,17 +6,21 @@ import { AppComponent } from './app.component';
 import { WithStatusComponent } from './with-status/with-status.component';
 import { WithoutStatusComponent } from './without-status/without-status.component';
 import { ConfirmationAlertComponent } from './confirmation-alert/confirmation-alert.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ImageContainerComponent } from './image-container/image-container.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WithStatusComponent,
     WithoutStatusComponent,
-    ConfirmationAlertComponent
+    ConfirmationAlertComponent,
+    ImageContainerComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

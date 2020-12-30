@@ -10,6 +10,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output
 export class WithoutStatusComponent implements OnInit {
   @Input() Product:Product;
   @Output() selectProduct: EventEmitter<Product> = new EventEmitter();
+  @Output() unSelectProduct: EventEmitter<Product> = new EventEmitter();
 
   private disabled:boolean;
   public actionBuy:string = "";
@@ -26,8 +27,15 @@ export class WithoutStatusComponent implements OnInit {
     this.actionBuy = "ADDED TO CART";
     this.selectProduct.emit(this.Product);
   }
+
+  unSelectItem(){
+    this.disabled = false;
+    this.actionBuy = `BUY FOR $${this.Product.price}`;
+    this.unSelectProduct.emit(this.Product);
+  }
+
   isItemDisabled(){
-    return !!this.disabled;
+    return this.disabled;
   }
 
 }

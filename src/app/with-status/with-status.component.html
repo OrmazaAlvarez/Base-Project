@@ -3,7 +3,11 @@
         <h1 class="title">PRODUCTS</h1>
         <div class="columns">
             <div class="column" *ngFor="let item of storeModel.itemsStore">
-                <app-without-status [Product]="item" (selectProduct)="onSelectProduct($event)"></app-without-status>
+                <app-without-status 
+                  [Product]="item"
+                  (selectProduct)="onSelectProduct($event)"
+                  (unSelectProduct)="onUnSelectProduct($event)">
+                </app-without-status>
             </div>
         </div>
     </section>

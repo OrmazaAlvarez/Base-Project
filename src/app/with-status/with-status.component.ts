@@ -1,29 +1,45 @@
+import { HttpClient } from "@angular/common/http";
 import { ConfirmationAlertComponent } from './../confirmation-alert/confirmation-alert.component';
-import { Store } from './../models/store.model';
 import { Product } from './../interfaces/product';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-with-status',
   templateUrl: './with-status.component.html',
   styleUrls: ['./with-status.component.sass']
 })
-export class WithStatusComponent implements OnInit {
+export class WithStatusComponent implements OnInit, OnDestroy {
 
-  storeModel: Store = new Store();
+  storeModel: Object;
   purchasedItems: Array<Product>;
   @ViewChild(ConfirmationAlertComponent,{ static: false })
   alertChild:ConfirmationAlertComponent;
+  private storeSubscription: Subscription;
 
-  constructor() { 
+  constructor(private http: HttpClient) { 
     this.purchasedItems = [];
+    this.storeModel = { itemsStore: []};
   }
 
   ngOnInit(): void {
+    this.storeSubscription = this.http
+      .get("http://localhost:4200/assets/data/data.json")
+      .subscribe((resultados) => {
+        this.storeModel = resultados;
+      });
+  }
+  
+  ngOnDestroy() {
+    this.storeSubscription.unsubscribe();
   }
 
   onSelectProduct(_event: Product){
     this.purchasedItems.push(_event);
+  }
+
+  onUnSelectProduct(_event: Product){
+    
   }
 
   makePayment(){
@@ -32,7 +48,7 @@ export class WithStatusComponent implements OnInit {
   
   getPrecioTotal(){
     if (this.purchasedItems){
-      return this.purchasedItems.reduce((prev:number, item:Product) => prev + item.price,
+      return this.purchasedItems.reduce((prev:number, item:Product ) => prev + item.price,
       0);
     }
   }

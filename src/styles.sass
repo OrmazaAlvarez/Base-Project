@@ -2,11 +2,10 @@
 html, body
   padding: 50px
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
-  background-color: #e7c84c
+  background-color: #4cb6e7
 
 nav
   margin: 10px 0
-
   a.active
     color: red
     border-bottom: solid
@@ -17,16 +16,30 @@ a
 .contenidos
   max-width: 950px
   margin: auto
-
   p
     margin: 10px 0
 
 .item-price
   position: absolute
   right: 10px
+  top: 6px
 
 .panel-block
   background: #fff
+  position: relative
 
-.card-content p
-  margin: 20px 0
+.card-content
+  p
+    margin: 20px 0
+
+app-without-status 
+  .is-one-quarter
+    position: relative
+  .close-icon
+    position: absolute
+    right: 6px 
+    z-index: 1
+    font-size: 24px
+    top: 5px
+  .is-hidden
+    display: none
