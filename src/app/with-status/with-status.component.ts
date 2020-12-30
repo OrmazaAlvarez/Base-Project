@@ -39,14 +39,14 @@ export class WithStatusComponent implements OnInit, OnDestroy {
   }
 
   onUnSelectProduct(_event: Product){
-    
+    this.purchasedItems.splice(this.purchasedItems.indexOf(_event),1);
   }
 
   makePayment(){
     this.alertChild.hideShow();
   }
-  
-  getPrecioTotal(){
+
+  getTotalPrice(){
     if (this.purchasedItems){
       return this.purchasedItems.reduce((prev:number, item:Product ) => prev + item.price,
       0);

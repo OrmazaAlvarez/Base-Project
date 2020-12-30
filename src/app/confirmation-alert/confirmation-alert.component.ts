@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-confirmation-alert',
@@ -7,11 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfirmationAlertComponent implements OnInit {
   public active: boolean;
+  @Input() total: number;
   constructor() { 
     this.active = false;
   }
 
-  ngOnInit(): void {
+  ngOnInit(){
   }
 
   hideShow(){

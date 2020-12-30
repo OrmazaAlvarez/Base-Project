@@ -5,7 +5,7 @@
             <p class="modal-card-title">Confirmation</p>
             <button class="delete" aria-label="close" (click)="hideShow()"></button>
         </header>
-        <section class="modal-card-body">Payment Done</section>
+        <section class="modal-card-body">Payment Done {{total | currency}}</section>
         <footer class="modal-card-foot">
             <button class="button is-success" (click)="hideShow()">OK</button>
         </footer>

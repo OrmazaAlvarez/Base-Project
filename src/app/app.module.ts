@@ -8,6 +8,7 @@ import { WithoutStatusComponent } from './without-status/without-status.componen
 import { ConfirmationAlertComponent } from './confirmation-alert/confirmation-alert.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ImageContainerComponent } from './image-container/image-container.component';
+import { ShoppingCartStatusComponent } from './shopping-cart-status/shopping-cart-status.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ImageContainerComponent } from './image-container/image-container.compo
     WithStatusComponent,
     WithoutStatusComponent,
     ConfirmationAlertComponent,
-    ImageContainerComponent
+    ImageContainerComponent,
+    ShoppingCartStatusComponent
   ],
   imports: [
     BrowserModule,
