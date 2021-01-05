@@ -32,14 +32,33 @@ a
   p
     margin: 20px 0
 
-app-without-status 
-  .is-one-quarter
-    position: relative
-  .close-icon
+app-without-status .is-one-quarter
+  position: relative
+  
+.close-icon
+  position: absolute
+  right: 6px
+  z-index: 1
+  font-size: 24px
+  top: 5px
+
+.is-hidden
+  display: none
+
+app-without-status
+  position: relative
+  display: block  
+  .contextual
     position: absolute
-    right: 6px 
-    z-index: 1
-    font-size: 24px
-    top: 5px
-  .is-hidden
+    top: 0
+    left: 0
+    background: #fff
+    width: 133px
+    padding: 16px
+    border: solid
+    font-weight: bold
     display: none
+    &.visible
+      display: block
+    &.invisible
+      display: none

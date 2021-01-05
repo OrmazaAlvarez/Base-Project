@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Product } from '../interfaces/product';
 
 @Component({
   selector: 'app-shopping-cart-status',
@@ -6,17 +7,19 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
   styleUrls: ['./shopping-cart-status.component.sass']
 })
 export class ShoppingCartStatusComponent implements OnInit, OnChanges {
-  @Input() price: number;
-  @Input() storeModel: Array<Object>;
+  @Input() total: number;
+  @Input() shoppingCart: Array<Product>;
 
   @Output() pay: EventEmitter<null> = new EventEmitter();
-  constructor() { }
+  constructor() { 
+    this.shoppingCart = new Array<Product>();
+    this.total = 0;
+   }
 
-  ngOnInit(){
-  }
+  ngOnInit() {}
 
-  ngOnChanges(changes: SimpleChanges) {
-    if(changes.price.currentValue < changes.price.previousValue){
+   ngOnChanges(changes: SimpleChanges) {
+    if(changes.total.currentValue < changes.total.previousValue){
       alert("Are you sure you want to check out items?")
     }
   }

@@ -2,7 +2,7 @@
     <section class="section">
         <h1 class="title">PRODUCTS</h1>
         <div class="columns">
-            <div class="column" *ngFor="let item of storeModel.itemsStore">
+            <div class="column" *ngFor="let item of storeModel">
                 <app-without-status 
                   [Product]="item"
                   (selectProduct)="onSelectProduct($event)"
@@ -16,8 +16,8 @@
     </section>
 </div>
 <app-shopping-cart-status
-  [price]="getTotalPrice()"
-  [storeModel]="purchasedItems"
+  [total]="getTotalPrice()"
+  [shoppingCart]="purchasedItems"
   (pay)="makePayment()"
   ></app-shopping-cart-status>
 <app-confirmation-alert [total]="getTotalPrice()"></app-confirmation-alert>

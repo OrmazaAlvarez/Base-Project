@@ -1,4 +1,7 @@
-<div class="is-one-quarter">
+<div
+    class="is-one-quarter"
+    (contextmenu)="onRightClick()"
+    (click)="onRegularClick()">
     <span (click)="unSelectItem()"
           class="icon has-text-info close-icon"
           [ngClass]="{ 'is-hidden': !isItemDisabled() }" >
@@ -9,14 +12,19 @@
             <app-image-container [image]="Product.image"></app-image-container>
         </div>
         <div class="card-content">
-            <strong>{{Product.title}}</strong>
+            <strong>{{ Product.title }}</strong>
             <br />
-            <p>{{Product.text}}</p>
+            <p>{{ Product.text }}</p>
             <button class="button is-fullwidth is-small"
-            (click)="selectItem()" [disabled]="isItemDisabled()"
-            [ngClass]="{'is-danger': !isItemDisabled()}">
-                {{actionBuy}}
+                    (click)="selectItem()"
+                    [disabled]="isItemDisabled()"
+                    [ngClass]="{ 'is-danger': !isItemDisabled() }">
+                {{ actionBuy }}
             </button>
         </div>
     </div>
+</div>
+<div class="contextual" [ngClass]="{ visible: visibleMenu }">
+    {{Product.title}}
+    {{Product.price | currency}}
 </div>

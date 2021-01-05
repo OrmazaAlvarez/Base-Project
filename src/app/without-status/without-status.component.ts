@@ -14,8 +14,11 @@ export class WithoutStatusComponent implements OnInit {
 
   private disabled:boolean;
   public actionBuy:string = "";
+  public visibleMenu:boolean;
+
   constructor() {
     this.disabled = false;
+    this.visibleMenu = false;
    }
 
   ngOnInit(): void {
@@ -35,7 +38,16 @@ export class WithoutStatusComponent implements OnInit {
   }
 
   isItemDisabled(){
-    return this.disabled;
+    return !!this.disabled;
+  }
+
+  onRegularClick(){
+    this.visibleMenu = false;
+  }
+
+  onRightClick() {
+    this.visibleMenu = true;
+    return false;
   }
 
 }

@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, JsonpClientBackend } from "@angular/common/http";
 import { ConfirmationAlertComponent } from './../confirmation-alert/confirmation-alert.component';
 import { Product } from './../interfaces/product';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
@@ -11,15 +11,15 @@ import { Subscription } from 'rxjs';
 })
 export class WithStatusComponent implements OnInit, OnDestroy {
 
-  storeModel: Object;
+  storeModel: Array<Product>;
   purchasedItems: Array<Product>;
   @ViewChild(ConfirmationAlertComponent,{ static: false })
   alertChild:ConfirmationAlertComponent;
   private storeSubscription: Subscription;
 
   constructor(private http: HttpClient) { 
-    this.purchasedItems = [];
-    this.storeModel = { itemsStore: []};
+    this.purchasedItems = new Array<Product>();
+    this.storeModel = new Array<Product>();
   }
 
   ngOnInit(): void {
@@ -51,5 +51,6 @@ export class WithStatusComponent implements OnInit, OnDestroy {
       return this.purchasedItems.reduce((prev:number, item:Product ) => prev + item.price,
       0);
     }
+    return 0;
   }
 }

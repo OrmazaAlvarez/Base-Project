@@ -1,15 +1,16 @@
-<div *ngIf="price > 0">
+<div *ngIf="total > 0">
     <div class="columns">
       <nav class="panel is-three-quarter column">
         <p class="panel-heading">
-          Detalle de Compra
+          Purchase Detail
         </p>
-
-        <div class="panel-block" *ngFor="let purchasedItem of storeModel">
-          {{ purchasedItem.title }}
-          <span class="item-price">
-            {{ purchasedItem.price | currency }}
-          </span>
+        <div *ngFor="let item of storeModel">
+          <div class="panel-block">
+            {{ item.title }}
+            <span class="item-price">
+              {{ item.price | currency }}
+            </span>
+          </div>
         </div>
       </nav>
     </div>
@@ -17,7 +18,7 @@
       <div class="column is-fullwidth">
         <div class="is-pulled-right">
           <div class="is is-one-quarter ">
-            <h2 class="title">Total {{ price | currency }}</h2>
+            <h2 class="title">Total {{ total | currency }}</h2>
           </div>
           <button class="button is-link  is-pulled-right is-danger"
            (click)="makePayment()">
