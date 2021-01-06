@@ -9,6 +9,9 @@ import { ConfirmationAlertComponent } from './confirmation-alert/confirmation-al
 import { HttpClientModule } from '@angular/common/http';
 import { ImageContainerComponent } from './image-container/image-container.component';
 import { ShoppingCartStatusComponent } from './shopping-cart-status/shopping-cart-status.component';
+import { FormularioBasicoComponent } from './formulario-basico/formulario-basico.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -17,12 +20,14 @@ import { ShoppingCartStatusComponent } from './shopping-cart-status/shopping-car
     WithoutStatusComponent,
     ConfirmationAlertComponent,
     ImageContainerComponent,
-    ShoppingCartStatusComponent
+    ShoppingCartStatusComponent,
+    FormularioBasicoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
