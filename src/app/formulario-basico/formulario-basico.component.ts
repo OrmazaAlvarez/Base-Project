@@ -13,6 +13,6 @@ export class FormularioBasicoComponent implements OnInit {
   }
 
   onSubmit(_datos){
-
+    console.log(_datos.value);
   }
 }

@@ -10,7 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ImageContainerComponent } from './image-container/image-container.component';
 import { ShoppingCartStatusComponent } from './shopping-cart-status/shopping-cart-status.component';
 import { FormularioBasicoComponent } from './formulario-basico/formulario-basico.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormularioReactivoComponent } from './formulario-reactivo/formulario-reactivo.component';
 
 
 @NgModule({
@@ -21,13 +22,15 @@ import { FormsModule } from '@angular/forms';
     ConfirmationAlertComponent,
     ImageContainerComponent,
     ShoppingCartStatusComponent,
-    FormularioBasicoComponent
+    FormularioBasicoComponent,
+    FormularioReactivoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
