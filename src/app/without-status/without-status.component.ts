@@ -8,7 +8,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WithoutStatusComponent implements OnInit {
-  @Input() Product:Product;
+  @Input() Product?:Product;
   @Output() selectProduct: EventEmitter<Product> = new EventEmitter();
   @Output() unSelectProduct: EventEmitter<Product> = new EventEmitter();
 
@@ -22,7 +22,7 @@ export class WithoutStatusComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.actionBuy = `BUY FOR $${this.Product.price}`;
+    this.actionBuy = `BUY FOR $${this.Product?.price}`;
   }
 
   selectItem(){
@@ -33,7 +33,7 @@ export class WithoutStatusComponent implements OnInit {
 
   unSelectItem(){
     this.disabled = false;
-    this.actionBuy = `BUY FOR $${this.Product.price}`;
+    this.actionBuy = `BUY FOR $${this.Product?.price}`;
     this.unSelectProduct.emit(this.Product);
   }
 

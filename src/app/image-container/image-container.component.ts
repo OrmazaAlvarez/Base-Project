@@ -9,6 +9,7 @@ export class ImageContainerComponent implements OnInit {
   @Input() image: string;
   
   constructor() { 
+    this.image = '';
   }
 
   ngOnInit(): void {

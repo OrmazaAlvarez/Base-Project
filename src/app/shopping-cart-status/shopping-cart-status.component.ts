@@ -34,7 +34,7 @@ export class ShoppingCartStatusComponent implements OnInit, OnChanges, OnDestroy
     this.pay.emit();
   }
 
-  onKeyboard(_event){
+  onKeyboard(_event: any){
     if(_event.code === "Enter" || _event.code === "NumpadEnter"){
       this.makePayment();
     }

@@ -10,6 +10,7 @@ export class ConfirmationAlertComponent implements OnInit {
   @Input() total: number;
   constructor() { 
     this.active = false;
+    this.total = 0;
   }
 
   ngOnInit(){

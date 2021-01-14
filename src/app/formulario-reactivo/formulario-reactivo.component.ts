@@ -8,7 +8,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 })
 export class FormularioReactivoComponent implements OnInit {
 
-  constructor( private fb:FormBuilder) {}
+  constructor( private fb:FormBuilder) {
+    this.form = FormGroup.prototype;
+  }
 
   public form: FormGroup;
   ngOnInit(): void {
@@ -26,7 +28,7 @@ export class FormularioReactivoComponent implements OnInit {
     })
   }
 
-  onSubmit(_datos){
+  onSubmit(_datos: any){
     console.log(_datos.value);
   }
 

@@ -12,7 +12,7 @@ export class FormularioBasicoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(_datos){
+  onSubmit(_datos:any){
     console.log(_datos.value);
   }
 }

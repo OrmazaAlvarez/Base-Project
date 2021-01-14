@@ -20,12 +20,14 @@ export class WithStatusComponent implements OnInit, OnDestroy {
   constructor(private http: HttpClient) { 
     this.purchasedItems = new Array<Product>();
     this.storeModel = new Array<Product>();
+    this.alertChild = ConfirmationAlertComponent.prototype;
+    this.storeSubscription = Subscription.prototype;
   }
 
   ngOnInit(): void {
     this.storeSubscription = this.http
       .get("http://localhost:4200/assets/data/data.json")
-      .subscribe((resultados) => {
+      .subscribe((resultados: any)  => {
         this.storeModel = resultados;
       });
   }
@@ -48,7 +50,7 @@ export class WithStatusComponent implements OnInit, OnDestroy {
 
   getTotalPrice(){
     if (this.purchasedItems){
-      return this.purchasedItems.reduce((prev:number, item:Product ) => prev + item.price,
+      return this.purchasedItems.reduce((prev:number, item:Product ) => item.price? prev + item.price: prev + 0,
       0);
     }
     return 0;

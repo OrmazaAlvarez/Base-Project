@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "componentesAvanzado"
+  "defaultProject": "componentesAvanzado",
+  "cli": {
+    "analytics": "c313c076-411f-4ba5-8b85-88406b95f19d"
+  }
 }
